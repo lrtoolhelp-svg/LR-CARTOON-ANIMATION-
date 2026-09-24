@@ -1,16 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    // =========================
     // PAGE NAVIGATION
-    // =========================
-
     const navItems = document.querySelectorAll(".nav-item");
     const pages = document.querySelectorAll(".page");
 
     navItems.forEach(function (item) {
         item.addEventListener("click", function () {
 
-            const target = item.getAttribute("data-page");
+            const target = item.getAttribute("data-section");
 
             navItems.forEach(function (nav) {
                 nav.classList.remove("active");
@@ -36,36 +33,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    // =========================
-    // START CREATING BUTTON
-    // =========================
-
-    const startButton = document.querySelector("#startCreating");
+    // START CREATING
+    const startButton = document.querySelector("#startProjectBtn");
 
     if (startButton) {
         startButton.addEventListener("click", function () {
 
-            const scriptNav = document.querySelector(
-                '[data-page="script"]'
-            );
+            const scriptNav =
+                document.querySelector('[data-section="script"]');
 
             if (scriptNav) {
                 scriptNav.click();
             }
-
         });
     }
 
 
-    // =========================
     // NEW PROJECT
-    // =========================
-
     const newProjectButton =
-        document.querySelector("#newProject");
+        document.querySelector("#newProjectBtn");
 
     if (newProjectButton) {
-
         newProjectButton.addEventListener("click", function () {
 
             const confirmNew =
@@ -77,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.querySelector("#storyTitle");
 
             const script =
-                document.querySelector("#storyScript");
+                document.querySelector("#scriptBox");
 
             if (title) title.value = "";
             if (script) script.value = "";
@@ -85,28 +73,22 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.removeItem("lrCartoonProject");
 
             alert("New project started!");
-
         });
-
     }
 
 
-    // =========================
     // SAVE SCRIPT
-    // =========================
-
     const saveScriptButton =
-        document.querySelector("#saveScript");
+        document.querySelector("#saveScriptBtn");
 
     if (saveScriptButton) {
-
         saveScriptButton.addEventListener("click", function () {
 
             const title =
                 document.querySelector("#storyTitle");
 
             const script =
-                document.querySelector("#storyScript");
+                document.querySelector("#scriptBox");
 
             const project = {
                 title: title ? title.value : "",
@@ -120,21 +102,15 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
             alert("Script saved successfully!");
-
         });
-
     }
 
 
-    // =========================
     // LOAD SAVED SCRIPT
-    // =========================
-
     const savedProject =
         localStorage.getItem("lrCartoonProject");
 
     if (savedProject) {
-
         try {
 
             const project =
@@ -144,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.querySelector("#storyTitle");
 
             const script =
-                document.querySelector("#storyScript");
+                document.querySelector("#scriptBox");
 
             if (title && project.title) {
                 title.value = project.title;
@@ -155,106 +131,44 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
         } catch (error) {
-
-            console.log(
-                "Saved project could not be loaded."
-            );
-
+            console.log("Saved project could not be loaded.");
         }
-
     }
 
 
-    // =========================
     // CLEAR SCRIPT
-    // =========================
-
     const clearScriptButton =
-        document.querySelector("#clearScript");
+        document.querySelector("#clearScriptBtn");
 
     if (clearScriptButton) {
-
         clearScriptButton.addEventListener("click", function () {
 
             const title =
                 document.querySelector("#storyTitle");
 
             const script =
-                document.querySelector("#storyScript");
+                document.querySelector("#scriptBox");
 
             if (title) title.value = "";
             if (script) script.value = "";
-
         });
-
     }
 
 
-    // =========================
-    // GENERIC BUTTON FEEDBACK
-    // =========================
-
-    const actionButtons =
-        document.querySelectorAll(
-            ".control-buttons button, .toolbar button"
-        );
-
-    actionButtons.forEach(function (button) {
-
-        button.addEventListener("click", function () {
-
-            const oldText = button.textContent;
-
-            button.textContent = "Selected ✓";
-
-            setTimeout(function () {
-                button.textContent = oldText;
-            }, 800);
-
-        });
-
-    });
-
-
-    // =========================
     // LANGUAGE BUTTON
-    // =========================
-
     const languageButton =
-        document.querySelector("#languageButton");
+        document.querySelector("#languageBtn");
 
     if (languageButton) {
-
         languageButton.addEventListener("click", function () {
 
-            const languages =
-                "Languages: Bengali | English | Hindi | Arabic";
-
-            alert(languages);
-
-        });
-
-    }
-
-
-    // =========================
-    // EXPORT BUTTON
-    // =========================
-
-    const exportButton =
-        document.querySelector("#exportButton");
-
-    if (exportButton) {
-
-        exportButton.addEventListener("click", function () {
-
             alert(
-                "Export system is ready for future video rendering."
+                "Languages: Bengali | English | Hindi | Arabic"
             );
-
         });
-
     }
 
 
-   
+    console.log("LR Cartoon Studio Pro loaded successfully.");
+
+});
