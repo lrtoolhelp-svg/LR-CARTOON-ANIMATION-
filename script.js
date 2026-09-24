@@ -1,0 +1,260 @@
+document.addEventListener("DOMContentLoaded", function () {
+
+    // =========================
+    // PAGE NAVIGATION
+    // =========================
+
+    const navItems = document.querySelectorAll(".nav-item");
+    const pages = document.querySelectorAll(".page");
+
+    navItems.forEach(function (item) {
+        item.addEventListener("click", function () {
+
+            const target = item.getAttribute("data-page");
+
+            navItems.forEach(function (nav) {
+                nav.classList.remove("active");
+            });
+
+            pages.forEach(function (page) {
+                page.classList.remove("active");
+            });
+
+            item.classList.add("active");
+
+            const targetPage = document.getElementById(target);
+
+            if (targetPage) {
+                targetPage.classList.add("active");
+            }
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    });
+
+
+    // =========================
+    // START CREATING BUTTON
+    // =========================
+
+    const startButton = document.querySelector("#startCreating");
+
+    if (startButton) {
+        startButton.addEventListener("click", function () {
+
+            const scriptNav = document.querySelector(
+                '[data-page="script"]'
+            );
+
+            if (scriptNav) {
+                scriptNav.click();
+            }
+
+        });
+    }
+
+
+    // =========================
+    // NEW PROJECT
+    // =========================
+
+    const newProjectButton =
+        document.querySelector("#newProject");
+
+    if (newProjectButton) {
+
+        newProjectButton.addEventListener("click", function () {
+
+            const confirmNew =
+                confirm("Start a new project?");
+
+            if (!confirmNew) return;
+
+            const title =
+                document.querySelector("#storyTitle");
+
+            const script =
+                document.querySelector("#storyScript");
+
+            if (title) title.value = "";
+            if (script) script.value = "";
+
+            localStorage.removeItem("lrCartoonProject");
+
+            alert("New project started!");
+
+        });
+
+    }
+
+
+    // =========================
+    // SAVE SCRIPT
+    // =========================
+
+    const saveScriptButton =
+        document.querySelector("#saveScript");
+
+    if (saveScriptButton) {
+
+        saveScriptButton.addEventListener("click", function () {
+
+            const title =
+                document.querySelector("#storyTitle");
+
+            const script =
+                document.querySelector("#storyScript");
+
+            const project = {
+                title: title ? title.value : "",
+                script: script ? script.value : "",
+                savedAt: new Date().toISOString()
+            };
+
+            localStorage.setItem(
+                "lrCartoonProject",
+                JSON.stringify(project)
+            );
+
+            alert("Script saved successfully!");
+
+        });
+
+    }
+
+
+    // =========================
+    // LOAD SAVED SCRIPT
+    // =========================
+
+    const savedProject =
+        localStorage.getItem("lrCartoonProject");
+
+    if (savedProject) {
+
+        try {
+
+            const project =
+                JSON.parse(savedProject);
+
+            const title =
+                document.querySelector("#storyTitle");
+
+            const script =
+                document.querySelector("#storyScript");
+
+            if (title && project.title) {
+                title.value = project.title;
+            }
+
+            if (script && project.script) {
+                script.value = project.script;
+            }
+
+        } catch (error) {
+
+            console.log(
+                "Saved project could not be loaded."
+            );
+
+        }
+
+    }
+
+
+    // =========================
+    // CLEAR SCRIPT
+    // =========================
+
+    const clearScriptButton =
+        document.querySelector("#clearScript");
+
+    if (clearScriptButton) {
+
+        clearScriptButton.addEventListener("click", function () {
+
+            const title =
+                document.querySelector("#storyTitle");
+
+            const script =
+                document.querySelector("#storyScript");
+
+            if (title) title.value = "";
+            if (script) script.value = "";
+
+        });
+
+    }
+
+
+    // =========================
+    // GENERIC BUTTON FEEDBACK
+    // =========================
+
+    const actionButtons =
+        document.querySelectorAll(
+            ".control-buttons button, .toolbar button"
+        );
+
+    actionButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const oldText = button.textContent;
+
+            button.textContent = "Selected ✓";
+
+            setTimeout(function () {
+                button.textContent = oldText;
+            }, 800);
+
+        });
+
+    });
+
+
+    // =========================
+    // LANGUAGE BUTTON
+    // =========================
+
+    const languageButton =
+        document.querySelector("#languageButton");
+
+    if (languageButton) {
+
+        languageButton.addEventListener("click", function () {
+
+            const languages =
+                "Languages: Bengali | English | Hindi | Arabic";
+
+            alert(languages);
+
+        });
+
+    }
+
+
+    // =========================
+    // EXPORT BUTTON
+    // =========================
+
+    const exportButton =
+        document.querySelector("#exportButton");
+
+    if (exportButton) {
+
+        exportButton.addEventListener("click", function () {
+
+            alert(
+                "Export system is ready for future video rendering."
+            );
+
+        });
+
+    }
+
+
+   
