@@ -1,174 +1,235 @@
-document.addEventListener("DOMContentLoaded", function () {
+/* =========================================================
+   LR CARTOON STUDIO PRO
+   MAIN APPLICATION JAVASCRIPT
+========================================================= */
 
-    // PAGE NAVIGATION
-    const navItems = document.querySelectorAll(".nav-item");
-    const pages = document.querySelectorAll(".page");
+"use strict";
 
-    navItems.forEach(function (item) {
-        item.addEventListener("click", function () {
+/* =========================================================
+   GLOBAL STATE
+========================================================= */
 
-            const target = item.getAttribute("data-section");
+const state = {
+  projectName: "Untitled Project",
+  storyTitle: "",
+  storyGenre: "Adventure",
+  script: "",
 
-            navItems.forEach(function (nav) {
-                nav.classList.remove("active");
-            });
+  characters: [],
+  scenes: [],
 
-            pages.forEach(function (page) {
-                page.classList.remove("active");
-            });
+  selectedCharacter: null,
+  selectedScene: null,
 
-            item.classList.add("active");
+  expression: "😐",
+  ageStage: "adult",
 
-            const targetPage = document.getElementById(target);
+  resolution: "1080p",
+  format: "16:9",
+  quality: "High",
 
-            if (targetPage) {
-                targetPage.classList.add("active");
-            }
+  history: [],
+  historyIndex: -1
+};
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        });
+
+/* =========================================================
+   BASIC HELPERS
+========================================================= */
+
+function $(selector) {
+  return document.querySelector(selector);
+}
+
+function $$(selector) {
+  return document.querySelectorAll(selector);
+}
+
+function showPage(pageId) {
+
+  $$(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  const target = document.getElementById(pageId);
+
+  if (target) {
+    target.classList.add("active");
+  }
+
+  $$(".nav-item").forEach(item => {
+    item.classList.remove("active");
+
+    if (item.dataset.section === pageId) {
+      item.classList.add("active");
+    }
+  });
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+
+function notify(message) {
+  alert(message);
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function setupNavigation() {
+
+  $$(".nav-item").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      const section = button.dataset.section;
+
+      if (section) {
+        showPage(section);
+      }
+
     });
 
-
-    // START CREATING
-    const startButton = document.querySelector("#startProjectBtn");
-
-    if (startButton) {
-        startButton.addEventListener("click", function () {
-
-            const scriptNav =
-                document.querySelector('[data-section="script"]');
-
-            if (scriptNav) {
-                scriptNav.click();
-            }
-        });
-    }
+  });
 
 
-    // NEW PROJECT
-    const newProjectButton =
-        document.querySelector("#newProjectBtn");
+  $$("[data-section-link]").forEach(button => {
 
-    if (newProjectButton) {
-        newProjectButton.addEventListener("click", function () {
+    button.addEventListener("click", () => {
 
-            const confirmNew =
-                confirm("Start a new project?");
+      const section = button.dataset.sectionLink;
 
-            if (!confirmNew) return;
+      if (section) {
+        showPage(section);
+      }
 
-            const title =
-                document.querySelector("#storyTitle");
+    });
 
-            const script =
-                document.querySelector("#scriptBox");
+  });
 
-            if (title) title.value = "";
-            if (script) script.value = "";
-
-            localStorage.removeItem("lrCartoonProject");
-
-            alert("New project started!");
-        });
-    }
+}
 
 
-    // SAVE SCRIPT
-    const saveScriptButton =
-        document.querySelector("#saveScriptBtn");
+/* =========================================================
+   PROJECT SYSTEM
+========================================================= */
 
-    if (saveScriptButton) {
-        saveScriptButton.addEventListener("click", function () {
+function updateProjectName() {
 
-            const title =
-                document.querySelector("#storyTitle");
+  const title =
+    state.projectName ||
+    state.storyTitle ||
+    "Untitled Project";
 
-            const script =
-                document.querySelector("#scriptBox");
+  const element = $("#currentProjectName");
 
-            const project = {
-                title: title ? title.value : "",
-                script: script ? script.value : "",
-                savedAt: new Date().toISOString()
-            };
-
-            localStorage.setItem(
-                "lrCartoonProject",
-                JSON.stringify(project)
-            );
-
-            alert("Script saved successfully!");
-        });
-    }
+  if (element) {
+    element.textContent = title;
+  }
+}
 
 
-    // LOAD SAVED SCRIPT
-    const savedProject =
-        localStorage.getItem("lrCartoonProject");
+function updateDashboard() {
 
-    if (savedProject) {
-        try {
+  const projectCount = $("#projectCount");
+  const characterCount = $("#characterCount");
+  const sceneCount = $("#sceneCount");
+  const duration = $("#projectDuration");
 
-            const project =
-                JSON.parse(savedProject);
+  if (projectCount) {
+    projectCount.textContent =
+      state.projectName !== "Untitled Project" ? "1" : "0";
+  }
 
-            const title =
-                document.querySelector("#storyTitle");
+  if (characterCount) {
+    characterCount.textContent = state.characters.length;
+  }
 
-            const script =
-                document.querySelector("#scriptBox");
+  if (sceneCount) {
+    sceneCount.textContent = state.scenes.length;
+  }
 
-            if (title && project.title) {
-                title.value = project.title;
-            }
+  if (duration) {
 
-            if (script && project.script) {
-                script.value = project.script;
-            }
+    const totalSeconds = state.scenes.reduce(
+      (sum, scene) => sum + Number(scene.duration || 0),
+      0
+    );
 
-        } catch (error) {
-            console.log("Saved project could not be loaded.");
-        }
-    }
+    const minutes =
+      Math.floor(totalSeconds / 60)
+        .toString()
+        .padStart(2, "0");
 
+    const seconds =
+      Math.floor(totalSeconds % 60)
+        .toString()
+        .padStart(2, "0");
 
-    // CLEAR SCRIPT
-    const clearScriptButton =
-        document.querySelector("#clearScriptBtn");
+    duration.textContent = `${minutes}:${seconds}`;
+  }
 
-    if (clearScriptButton) {
-        clearScriptButton.addEventListener("click", function () {
+  const sceneTotal = $("#sceneTotal");
 
-            const title =
-                document.querySelector("#storyTitle");
-
-            const script =
-                document.querySelector("#scriptBox");
-
-            if (title) title.value = "";
-            if (script) script.value = "";
-        });
-    }
-
-
-    // LANGUAGE BUTTON
-    const languageButton =
-        document.querySelector("#languageBtn");
-
-    if (languageButton) {
-        languageButton.addEventListener("click", function () {
-
-            alert(
-                "Languages: Bengali | English | Hindi | Arabic"
-            );
-        });
-    }
+  if (sceneTotal) {
+    sceneTotal.textContent = state.scenes.length;
+  }
+}
 
 
-    console.log("LR Cartoon Studio Pro loaded successfully.");
+function createNewProject() {
 
-});
+  const name = prompt(
+    "Enter your project name:",
+    "My Cartoon Project"
+  );
+
+  if (!name) return;
+
+  state.projectName = name.trim();
+
+  state.storyTitle = "";
+  state.script = "";
+
+  state.characters = [];
+  state.scenes = [];
+
+  state.selectedCharacter = null;
+  state.selectedScene = null;
+
+  updateProjectName();
+  updateDashboard();
+
+  renderCharacters();
+  renderScenes();
+
+  clearScriptFields();
+
+  saveToBrowser();
+
+  showPage("dashboard");
+
+  notify("New project created successfully.");
+}
+
+
+function setupProjectButtons() {
+
+  const newProjectBtn = $("#newProjectBtn");
+
+  if (newProjectBtn) {
+    newProjectBtn.addEventListener(
+      "click",
+      createNewProject
+    );
+  }
+
+
+  const createProjectBtn = $("#createProjectBtn");
+
+ 
