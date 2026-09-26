@@ -6,226 +6,572 @@
 
   <title>LR Cartoon Studio Pro</title>
 
-  <meta name="description" content="LR Cartoon Studio Pro - Create stories, characters, scenes and animations in one modern studio.">
+  <meta
+    name="description"
+    content="LR Cartoon Studio Pro - Create stories, characters, scenes and animations in one modern studio."
+  >
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- TOP BAR -->
+  <!-- =====================================================
+       TOP BAR
+  ====================================================== -->
+
   <header class="topbar">
+
     <div class="brand">
+
       <div class="logo">LR</div>
 
       <div>
         <h1>LR CARTOON</h1>
         <span>STUDIO PRO</span>
       </div>
+
     </div>
 
-    <div class="top-actions">
-      <button id="languageBtn">English ▾</button>
-      <button id="newProjectBtn">＋ New Project</button>
+
+    <div class="project-name">
+
+      <span>CURRENT PROJECT</span>
+
+      <strong id="currentProjectName">
+        Untitled Project
+      </strong>
+
     </div>
+
+
+    <div class="top-actions">
+
+      <button
+        id="languageBtn"
+        type="button">
+        English ▾
+      </button>
+
+      <button
+        id="newProjectBtn"
+        type="button">
+        ＋ New Project
+      </button>
+
+    </div>
+
   </header>
 
 
-  <!-- MAIN APP -->
+  <!-- =====================================================
+       MAIN APP
+  ====================================================== -->
+
   <main class="app">
 
-    <!-- SIDEBAR -->
+
+    <!-- ===================================================
+         SIDEBAR
+    ==================================================== -->
+
     <aside class="sidebar">
 
-      <button class="nav-item active" data-section="dashboard">
-        🏠
-        <span>Dashboard</span>
-      </button>
+      <div class="sidebar-top">
 
-      <button class="nav-item" data-section="script">
-        📝
-        <span>Script Studio</span>
-      </button>
+        <button
+          class="nav-item active"
+          data-section="dashboard"
+          type="button">
 
-      <button class="nav-item" data-section="characters">
-        👤
-        <span>Characters</span>
-      </button>
+          <span>🏠</span>
+          <span>Dashboard</span>
 
-      <button class="nav-item" data-section="scenes">
-        🎬
-        <span>Scenes</span>
-      </button>
+        </button>
 
-      <button class="nav-item" data-section="animation">
-        ✨
-        <span>Animation</span>
-      </button>
 
-      <button class="nav-item" data-section="audio">
-        🔊
-        <span>Audio Studio</span>
-      </button>
+        <button
+          class="nav-item"
+          data-section="script"
+          type="button">
 
-      <button class="nav-item" data-section="timeline">
-        ⏱️
-        <span>Timeline</span>
-      </button>
+          <span>📝</span>
+          <span>Script Studio</span>
 
-      <button class="nav-item" data-section="preview">
-        ▶️
-        <span>Preview</span>
-      </button>
+        </button>
 
-      <button class="nav-item" data-section="export">
-        📤
-        <span>Export</span>
-      </button>
+
+        <button
+          class="nav-item"
+          data-section="characters"
+          type="button">
+
+          <span>👤</span>
+          <span>Characters</span>
+
+        </button>
+
+
+        <button
+          class="nav-item"
+          data-section="scenes"
+          type="button">
+
+          <span>🎬</span>
+          <span>Scenes</span>
+
+        </button>
+
+
+        <button
+          class="nav-item"
+          data-section="animation"
+          type="button">
+
+          <span>✨</span>
+          <span>Animation</span>
+
+        </button>
+
+
+        <button
+          class="nav-item"
+          data-section="audio"
+          type="button">
+
+          <span>🔊</span>
+          <span>Audio Studio</span>
+
+        </button>
+
+
+        <button
+          class="nav-item"
+          data-section="timeline"
+          type="button">
+
+          <span>⏱️</span>
+          <span>Timeline</span>
+
+        </button>
+
+
+        <button
+          class="nav-item"
+          data-section="preview"
+          type="button">
+
+          <span>▶️</span>
+          <span>Preview</span>
+
+        </button>
+
+
+        <button
+          class="nav-item"
+          data-section="export"
+          type="button">
+
+          <span>📤</span>
+          <span>Export</span>
+
+        </button>
+
+      </div>
+
+
+      <div class="sidebar-bottom">
+
+        <button
+          class="nav-item"
+          id="resetProjectBtn"
+          type="button">
+
+          <span>♻️</span>
+          <span>Reset Project</span>
+
+        </button>
+
+      </div>
 
     </aside>
 
 
-    <!-- CONTENT -->
+    <!-- ===================================================
+         CONTENT
+    ==================================================== -->
+
     <section class="content">
 
 
-      <!-- DASHBOARD -->
-      <section id="dashboard" class="page active">
+      <!-- =================================================
+           DASHBOARD
+      ================================================== -->
+
+      <section
+        id="dashboard"
+        class="page active">
+
 
         <div class="hero">
 
-          <div>
-            <p class="eyebrow">CREATIVE ANIMATION PLATFORM</p>
+          <div class="hero-content">
+
+            <p class="eyebrow">
+              CREATIVE ANIMATION PLATFORM
+            </p>
+
 
             <h2>
               Turn your idea into a
               <span>cartoon story.</span>
             </h2>
 
+
             <p class="hero-text">
-              Build characters, scenes, animation, dialogue and cinematic stories
-              from one powerful studio.
+              Build characters, scenes, animation, dialogue
+              and cinematic stories from one powerful studio.
             </p>
 
-            <button class="primary-btn" id="startProjectBtn">
-              🚀 Start Creating
-            </button>
-          </div>
 
-          <div class="hero-card">
-            <div class="hero-icon">🎬</div>
-            <h3>LR CARTOON</h3>
-            <p>Studio Pro</p>
+            <div class="hero-actions">
+
+              <button
+                class="primary-btn"
+                id="createProjectBtn"
+                type="button">
+
+                🚀 Start Creating
+
+              </button>
+
+
+              <button
+                class="secondary-btn"
+                id="previewProjectBtn"
+                type="button">
+
+                ▶ Preview
+
+              </button>
+
+            </div>
+
+
             <div class="status">
+
               <span></span>
               Studio Ready
+
             </div>
+
+          </div>
+
+
+          <div class="hero-card">
+
+            <div class="hero-icon">
+              🎬
+            </div>
+
+            <h3>
+              LR CARTOON
+            </h3>
+
+            <p>
+              STUDIO PRO
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- DASHBOARD STATS -->
+
+        <div class="dashboard-stats">
+
+          <div class="stat-card">
+
+            <span>PROJECTS</span>
+
+            <strong id="projectCount">
+              0
+            </strong>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <span>CHARACTERS</span>
+
+            <strong id="characterCount">
+              0
+            </strong>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <span>SCENES</span>
+
+            <strong id="sceneCount">
+              0
+            </strong>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <span>DURATION</span>
+
+            <strong id="projectDuration">
+              00:00
+            </strong>
+
           </div>
 
         </div>
 
 
         <!-- WORKFLOW -->
+
         <div class="section-title">
+
           <div>
-            <p class="eyebrow">WORKFLOW</p>
-            <h3>Your Creative Pipeline</h3>
+
+            <p class="eyebrow">
+              WORKFLOW
+            </p>
+
+            <h3>
+              Your Creative Pipeline
+            </h3>
+
           </div>
+
         </div>
 
 
         <div class="workflow">
 
-          <div class="workflow-card">
+
+          <div
+            class="workflow-card"
+            data-section-link="script">
+
             <strong>01</strong>
+
             <div>📝</div>
+
             <h4>Script</h4>
-            <p>Build your story.</p>
+
+            <p>
+              Build your story.
+            </p>
+
           </div>
 
-          <div class="workflow-card">
+
+          <div
+            class="workflow-card"
+            data-section-link="characters">
+
             <strong>02</strong>
+
             <div>👤</div>
+
             <h4>Characters</h4>
-            <p>Create your cast.</p>
+
+            <p>
+              Create your cast.
+            </p>
+
           </div>
 
-          <div class="workflow-card">
+
+          <div
+            class="workflow-card"
+            data-section-link="scenes">
+
             <strong>03</strong>
+
             <div>🎬</div>
+
             <h4>Scenes</h4>
-            <p>Build your world.</p>
+
+            <p>
+              Build your world.
+            </p>
+
           </div>
 
-          <div class="workflow-card">
+
+          <div
+            class="workflow-card"
+            data-section-link="animation">
+
             <strong>04</strong>
+
             <div>✨</div>
+
             <h4>Animation</h4>
-            <p>Animate everything.</p>
+
+            <p>
+              Animate everything.
+            </p>
+
           </div>
 
-          <div class="workflow-card">
+
+          <div
+            class="workflow-card"
+            data-section-link="audio">
+
             <strong>05</strong>
+
             <div>🔊</div>
+
             <h4>Audio</h4>
-            <p>Add voice & sound.</p>
+
+            <p>
+              Add voice & sound.
+            </p>
+
           </div>
 
-          <div class="workflow-card">
+
+          <div
+            class="workflow-card"
+            data-section-link="export">
+
             <strong>06</strong>
+
             <div>📤</div>
+
             <h4>Export</h4>
-            <p>Prepare your video.</p>
+
+            <p>
+              Prepare your video.
+            </p>
+
           </div>
 
         </div>
 
 
         <!-- FEATURES -->
+
         <div class="section-title">
+
           <div>
-            <p class="eyebrow">STUDIO FEATURES</p>
-            <h3>Everything in one place</h3>
+
+            <p class="eyebrow">
+              STUDIO FEATURES
+            </p>
+
+            <h3>
+              Everything in one place
+            </h3>
+
           </div>
+
         </div>
 
 
         <div class="feature-grid">
 
+
           <div class="feature-card">
+
             <span>🎭</span>
-            <h4>Character System</h4>
-            <p>Create and manage multiple characters.</p>
+
+            <h4>
+              Character System
+            </h4>
+
+            <p>
+              Create and manage multiple characters.
+            </p>
+
           </div>
 
+
           <div class="feature-card">
+
             <span>🌍</span>
-            <h4>World Builder</h4>
-            <p>Build different environments and locations.</p>
+
+            <h4>
+              World Builder
+            </h4>
+
+            <p>
+              Build different environments and locations.
+            </p>
+
           </div>
 
+
           <div class="feature-card">
+
             <span>🎥</span>
-            <h4>Cinematic Camera</h4>
-            <p>Zoom, pan, tracking and cinematic shots.</p>
+
+            <h4>
+              Cinematic Camera
+            </h4>
+
+            <p>
+              Zoom, pan, tracking and cinematic shots.
+            </p>
+
           </div>
 
+
           <div class="feature-card">
+
             <span>🎞️</span>
-            <h4>Scene Builder</h4>
-            <p>Create stories scene by scene.</p>
+
+            <h4>
+              Scene Builder
+            </h4>
+
+            <p>
+              Create stories scene by scene.
+            </p>
+
           </div>
 
+
           <div class="feature-card">
+
             <span>🎵</span>
-            <h4>Audio Studio</h4>
-            <p>Voice, music and sound effects.</p>
+
+            <h4>
+              Audio Studio
+            </h4>
+
+            <p>
+              Voice, music and sound effects.
+            </p>
+
           </div>
+
 
           <div class="feature-card">
+
             <span>🤖</span>
-            <h4>AI Ready</h4>
-            <p>Future AI models can be connected here.</p>
+
+            <h4>
+              AI Ready
+            </h4>
+
+            <p>
+              Future AI models can be connected here.
+            </p>
+
           </div>
 
         </div>
@@ -233,41 +579,167 @@
       </section>
 
 
-      <!-- SCRIPT -->
-      <section id="script" class="page">
+      <!-- =================================================
+           SCRIPT STUDIO
+      ================================================== -->
+
+      <section
+        id="script"
+        class="page">
+
 
         <div class="page-header">
-          <p class="eyebrow">01 / SCRIPT</p>
-          <h2>Script Studio</h2>
-          <p>Create the story structure for your cartoon.</p>
+
+          <p class="eyebrow">
+            01 / SCRIPT
+          </p>
+
+          <h2>
+            Script Studio
+          </h2>
+
+          <p>
+            Create the story structure for your cartoon.
+          </p>
+
         </div>
 
-        <div class="editor-card">
 
-          <label>Story Title</label>
+        <div class="script-layout">
 
-          <input
-            type="text"
-            id="storyTitle"
-            placeholder="Enter your story title..."
-          >
 
-          <label>Story / Script</label>
+          <div class="editor-card">
 
-          <textarea
-            id="scriptBox"
-            rows="14"
-            placeholder="Write your story here..."
-          ></textarea>
+            <label for="storyTitle">
+              Story Title
+            </label>
 
-          <div class="editor-actions">
-            <button class="secondary-btn" id="saveScriptBtn">
-              💾 Save Script
-            </button>
 
-            <button class="primary-btn" id="clearScriptBtn">
-              Clear
-            </button>
+            <input
+              type="text"
+              id="storyTitle"
+              placeholder="Enter your story title..."
+            >
+
+
+            <label for="scriptInput">
+              Story / Script
+            </label>
+
+
+            <textarea
+              id="scriptInput"
+              rows="14"
+              placeholder="Write your story here..."
+            ></textarea>
+
+
+            <div class="editor-actions">
+
+              <button
+                class="secondary-btn"
+                id="saveScriptBtn"
+                type="button">
+
+                💾 Save Script
+
+              </button>
+
+
+              <button
+                class="primary-btn"
+                id="clearScriptBtn"
+                type="button">
+
+                Clear
+
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div class="script-tools">
+
+
+            <div class="tool-card">
+
+              <h3>
+                Story Tools
+              </h3>
+
+              <p>
+                Build your cartoon story step by step.
+              </p>
+
+
+              <button
+                id="saveProjectBtn"
+                type="button">
+
+                💾 Save Project
+
+              </button>
+
+
+              <button
+                id="loadProjectBtn"
+                type="button">
+
+                📂 Load Project
+
+              </button>
+
+
+              <button
+                id="exportProjectBtn"
+                type="button">
+
+                📤 Export Project
+
+              </button>
+
+            </div>
+
+
+            <div class="tool-card">
+
+              <h3>
+                Genre
+              </h3>
+
+
+              <select id="storyGenre">
+
+                <option value="Adventure">
+                  Adventure
+                </option>
+
+                <option value="Comedy">
+                  Comedy
+                </option>
+
+                <option value="Action">
+                  Action
+                </option>
+
+                <option value="Fantasy">
+                  Fantasy
+                </option>
+
+                <option value="Mystery">
+                  Mystery
+                </option>
+
+                <option value="Drama">
+                  Drama
+                </option>
+
+              </select>
+
+            </div>
+
           </div>
 
         </div>
@@ -275,30 +747,345 @@
       </section>
 
 
-      <!-- CHARACTERS -->
-      <section id="characters" class="page">
+      <!-- =================================================
+           CHARACTERS
+      ================================================== -->
+
+      <section
+        id="characters"
+        class="page">
+
 
         <div class="page-header">
-          <p class="eyebrow">02 / CHARACTERS</p>
-          <h2>Character Studio</h2>
-          <p>Create and manage your cartoon characters.</p>
+
+          <p class="eyebrow">
+            02 / CHARACTERS
+          </p>
+
+          <h2>
+            Character Studio
+          </h2>
+
+          <p>
+            Create and manage your cartoon characters.
+          </p>
+
         </div>
 
-        <div class="character-grid">
 
-          <div class="add-character">
-            <div>＋</div>
-            <h3>Create Character</h3>
-            <p>Character AI will be connected later.</p>
-            <button class="primary-btn">
-              Create
-            </button>
+        <div class="character-studio">
+
+
+          <!-- CHARACTER CONTROLS -->
+
+          <div class="character-controls">
+
+
+            <div class="control-section">
+
+              <h3>
+                Create Character
+              </h3>
+
+
+              <label for="characterName">
+                Character Name
+              </label>
+
+
+              <input
+                type="text"
+                id="characterName"
+                placeholder="Enter character name..."
+              >
+
+
+              <div class="character-actions">
+
+                <button
+                  class="primary-btn"
+                  id="createCharacterBtn"
+                  type="button">
+
+                  ＋ Create Character
+
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <div class="control-section">
+
+              <h3>
+                Expression
+              </h3>
+
+
+              <div class="expression-buttons">
+
+
+                <button
+                  type="button"
+                  data-expression="😊">
+
+                  😊 Happy
+
+                </button>
+
+
+                <button
+                  type="button"
+                  data-expression="😢">
+
+                  😢 Sad
+
+                </button>
+
+
+                <button
+                  type="button"
+                  data-expression="😡">
+
+                  😡 Angry
+
+                </button>
+
+
+                <button
+                  type="button"
+                  data-expression="😨">
+
+                  😨 Fear
+
+                </button>
+
+
+                <button
+                  type="button"
+                  data-expression="😮">
+
+                  😮 Surprise
+
+                </button>
+
+
+                <button
+                  type="button"
+                  data-expression="😐">
+
+                  😐 Neutral
+
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <div class="control-section">
+
+              <h3>
+                Age Stage
+              </h3>
+
+
+              <div class="expression-buttons">
+
+
+                <button
+                  type="button"
+                  data-age="child">
+
+                  👶 Child
+
+                </button>
+
+
+                <button
+                  type="button"
+                  data-age="teen">
+
+                  🧒 Teen
+
+                </button>
+
+
+                <button
+                  type="button"
+                  data-age="adult">
+
+                  🧑 Adult
+
+                </button>
+
+
+                <button
+                  type="button"
+                  data-age="elder">
+
+                  👴 Elder
+
+                </button>
+
+              </div>
+
+            </div>
+
           </div>
 
-          <div class="character-placeholder">
-            <div class="character-avatar">👨</div>
-            <h3>Character 01</h3>
-            <p>Ready for customization</p>
+
+          <!-- CHARACTER PREVIEW -->
+
+          <div class="character-preview-panel">
+
+
+            <div class="preview-header">
+
+              <div>
+
+                <p class="eyebrow">
+                  CHARACTER PREVIEW
+                </p>
+
+                <h3>
+                  Studio Character
+                </h3>
+
+              </div>
+
+
+              <div class="character-id">
+                LR CHARACTER
+              </div>
+
+            </div>
+
+
+            <div class="character-preview">
+
+              <div class="preview-character">
+
+                <div class="character-hair">
+                  .
+                </div>
+
+                <div class="character-face">
+
+                  <div class="character-eyes">
+                    • •
+                  </div>
+
+                  <div
+                    class="character-expression"
+                    id="characterExpressionPreview">
+
+                    😐
+
+                  </div>
+
+                </div>
+
+
+                <div class="character-body">
+                  👕
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="preview-info">
+
+
+              <div>
+
+                <span>
+                  NAME
+                </span>
+
+                <strong id="previewCharacterName">
+                  No Character
+                </strong>
+
+              </div>
+
+
+              <div>
+
+                <span>
+                  AGE
+                </span>
+
+                <strong id="previewCharacterAge">
+                  Adult
+                </strong>
+
+              </div>
+
+
+              <div>
+
+                <span>
+                  EXPRESSION
+                </span>
+
+                <strong id="previewCharacterExpression">
+                  Neutral
+                </strong>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- CHARACTER LIBRARY -->
+
+        <div class="character-library">
+
+          <div class="section-title">
+
+            <div>
+
+              <p class="eyebrow">
+                CHARACTER LIBRARY
+              </p>
+
+              <h3>
+                Saved Characters
+              </h3>
+
+            </div>
+
+          </div>
+
+
+          <div
+            id="characterList"
+            class="saved-character-list">
+
+            <div class="empty-state">
+
+              <div>
+                👤
+              </div>
+
+              <h3>
+                No characters yet
+              </h3>
+
+              <p>
+                Create your first character.
+              </p>
+
+            </div>
+
           </div>
 
         </div>
@@ -306,27 +1093,74 @@
       </section>
 
 
-      <!-- SCENES -->
-      <section id="scenes" class="page">
+      <!-- =================================================
+           SCENES
+      ================================================== -->
+
+      <section
+        id="scenes"
+        class="page">
+
 
         <div class="page-header">
-          <p class="eyebrow">03 / SCENES</p>
-          <h2>Scene Builder</h2>
-          <p>Build your story world scene by scene.</p>
+
+          <p class="eyebrow">
+            03 / SCENES
+          </p>
+
+          <h2>
+            Scene Builder
+          </h2>
+
+          <p>
+            Build your story world scene by scene.
+          </p>
+
         </div>
 
-        <div class="scene-grid">
 
-          <div class="scene-card add-scene">
-            <div>＋</div>
-            <h3>New Scene</h3>
-            <p>Create your first scene.</p>
-          </div>
+        <div class="scene-toolbar">
 
-          <div class="scene-card">
-            <div class="scene-preview">🌆</div>
-            <h3>Scene 01</h3>
-            <p>City environment</p>
+          <button
+            class="primary-btn"
+            id="createSceneBtn"
+            type="button">
+
+            ＋ Create Scene
+
+          </button>
+
+
+          <button
+            class="secondary-btn"
+            id="sceneAddBtn"
+            type="button">
+
+            Add Scene
+
+          </button>
+
+        </div>
+
+
+        <div
+          id="sceneList"
+          class="project-grid">
+
+          <div class="empty-state">
+
+            <div>
+              🎬
+            </div>
+
+            <h3>
+              No scenes yet
+            </h3>
+
+            <p>
+              Create your first scene.
+            </p>
+
           </div>
 
         </div>
@@ -334,45 +1168,154 @@
       </section>
 
 
-      <!-- ANIMATION -->
-      <section id="animation" class="page">
+      <!-- =================================================
+           ANIMATION
+      ================================================== -->
+
+      <section
+        id="animation"
+        class="page">
+
 
         <div class="page-header">
-          <p class="eyebrow">04 / ANIMATION</p>
-          <h2>Animation Studio</h2>
-          <p>Control movement, camera and cinematic effects.</p>
+
+          <p class="eyebrow">
+            04 / ANIMATION
+          </p>
+
+          <h2>
+            Animation Studio
+          </h2>
+
+          <p>
+            Control movement, camera and cinematic effects.
+          </p>
+
         </div>
 
-        <div class="control-grid">
 
-          <div class="control-card">
-            <h3>Character Movement</h3>
+        <div class="animation-workspace">
 
-            <button>Walk</button>
-            <button>Run</button>
-            <button>Jump</button>
-            <button>Sit</button>
-            <button>Dance</button>
+
+          <div class="animation-preview">
+
+            <div class="animation-stage">
+
+              <div class="stage-character">
+                🧑
+              </div>
+
+            </div>
+
+
+            <div class="animation-controls">
+
+              <button type="button">
+                ▶ Play
+              </button>
+
+              <button type="button">
+                ⏸ Pause
+              </button>
+
+              <button type="button">
+                ⏹ Stop
+              </button>
+
+            </div>
+
           </div>
 
-          <div class="control-card">
-            <h3>Camera</h3>
 
-            <button>Zoom In</button>
-            <button>Zoom Out</button>
-            <button>Pan</button>
-            <button>Tracking</button>
-            <button>Close-up</button>
-          </div>
+          <div class="animation-tools">
 
-          <div class="control-card">
-            <h3>Expression</h3>
 
-            <button>😊 Happy</button>
-            <button>😡 Angry</button>
-            <button>😢 Sad</button>
-            <button>😨 Fear</button>
-            <button>😮 Surprise</button>
+            <div class="control-card">
+
+              <h3>
+                Character Movement
+              </h3>
+
+              <button type="button">
+                Walk
+              </button>
+
+              <button type="button">
+                Run
+              </button>
+
+              <button type="button">
+                Jump
+              </button>
+
+              <button type="button">
+                Sit
+              </button>
+
+              <button type="button">
+                Dance
+              </button>
+
+            </div>
+
+
+            <div class="control-card">
+
+              <h3>
+                Camera
+              </h3>
+
+              <button type="button">
+                Zoom In
+              </button>
+
+              <button type="button">
+                Zoom Out
+              </button>
+
+              <button type="button">
+                Pan
+              </button>
+
+              <button type="button">
+                Tracking
+              </button>
+
+              <button type="button">
+                Close-up
+              </button>
+
+            </div>
+
+
+            <div class="control-card">
+
+              <h3>
+                Expression
+              </h3>
+
+              <button type="button">
+                😊 Happy
+              </button>
+
+              <button type="button">
+                😡 Angry
+              </button>
+
+              <button type="button">
+                😢 Sad
+              </button>
+
+              <button type="button">
+                😨 Fear
+              </button>
+
+              <button type="button">
+                😮 Surprise
+              </button>
+
+            </div>
+
           </div>
 
         </div>
@@ -380,36 +1323,101 @@
       </section>
 
 
-      <!-- AUDIO -->
-      <section id="audio" class="page">
+      <!-- =================================================
+           AUDIO
+      ================================================== -->
+
+      <section
+        id="audio"
+        class="page">
+
 
         <div class="page-header">
-          <p class="eyebrow">05 / AUDIO</p>
-          <h2>Audio Studio</h2>
-          <p>Prepare voice, music and sound effects.</p>
+
+          <p class="eyebrow">
+            05 / AUDIO
+          </p>
+
+          <h2>
+            Audio Studio
+          </h2>
+
+          <p>
+            Prepare voice, music and sound effects.
+          </p>
+
         </div>
+
 
         <div class="audio-grid">
 
+
           <div class="audio-card">
+
             <span>🎙️</span>
-            <h3>Voice</h3>
-            <p>Dialogue and narration.</p>
-            <button class="secondary-btn">Add Voice</button>
+
+            <h3>
+              Voice
+            </h3>
+
+            <p>
+              Dialogue and narration.
+            </p>
+
+            <button
+              class="secondary-btn"
+              type="button">
+
+              Add Voice
+
+            </button>
+
           </div>
 
+
           <div class="audio-card">
+
             <span>🎵</span>
-            <h3>Music</h3>
-            <p>Background music.</p>
-            <button class="secondary-btn">Add Music</button>
+
+            <h3>
+              Music
+            </h3>
+
+            <p>
+              Background music.
+            </p>
+
+            <button
+              class="secondary-btn"
+              type="button">
+
+              Add Music
+
+            </button>
+
           </div>
 
+
           <div class="audio-card">
+
             <span>💥</span>
-            <h3>Sound Effects</h3>
-            <p>Footsteps, rain, impact and more.</p>
-            <button class="secondary-btn">Add SFX</button>
+
+            <h3>
+              Sound Effects
+            </h3>
+
+            <p>
+              Footsteps, rain, impact and more.
+            </p>
+
+            <button
+              class="secondary-btn"
+              type="button">
+
+              Add SFX
+
+            </button>
+
           </div>
 
         </div>
@@ -417,48 +1425,120 @@
       </section>
 
 
-      <!-- TIMELINE -->
-      <section id="timeline" class="page">
+      <!-- =================================================
+           TIMELINE
+      ================================================== -->
+
+      <section
+        id="timeline"
+        class="page">
+
 
         <div class="page-header">
-          <p class="eyebrow">06 / TIMELINE</p>
-          <h2>Animation Timeline</h2>
-          <p>Organize characters, camera, dialogue and audio.</p>
+
+          <p class="eyebrow">
+            06 / TIMELINE
+          </p>
+
+          <h2>
+            Animation Timeline
+          </h2>
+
+          <p>
+            Organize characters, camera, dialogue and audio.
+          </p>
+
         </div>
+
 
         <div class="timeline">
 
+
           <div class="timeline-ruler">
-            <span>00:00</span>
-            <span>00:05</span>
-            <span>00:10</span>
-            <span>00:15</span>
-            <span>00:20</span>
+
+            <span>
+              00:00
+            </span>
+
+            <span>
+              00:05
+            </span>
+
+            <span>
+              00:10
+            </span>
+
+            <span>
+              00:15
+            </span>
+
+            <span>
+              00:20
+            </span>
+
+            <span>
+              00:25
+            </span>
+
+            <span>
+              00:30
+            </span>
+
           </div>
 
-          <div class="timeline-track">
-            <strong>Characters</strong>
-            <div class="track-line"></div>
-          </div>
 
           <div class="timeline-track">
-            <strong>Camera</strong>
+
+            <strong>
+              Characters
+            </strong>
+
             <div class="track-line"></div>
+
           </div>
 
-          <div class="timeline-track">
-            <strong>Dialogue</strong>
-            <div class="track-line"></div>
-          </div>
 
           <div class="timeline-track">
-            <strong>Music</strong>
+
+            <strong>
+              Camera
+            </strong>
+
             <div class="track-line"></div>
+
           </div>
 
+
           <div class="timeline-track">
-            <strong>SFX</strong>
+
+            <strong>
+              Dialogue
+            </strong>
+
             <div class="track-line"></div>
+
+          </div>
+
+
+          <div class="timeline-track">
+
+            <strong>
+              Music
+            </strong>
+
+            <div class="track-line"></div>
+
+          </div>
+
+
+          <div class="timeline-track">
+
+            <strong>
+              SFX
+            </strong>
+
+            <div class="track-line"></div>
+
           </div>
 
         </div>
@@ -466,20 +1546,41 @@
       </section>
 
 
-      <!-- PREVIEW -->
-      <section id="preview" class="page">
+      <!-- =================================================
+           PREVIEW
+      ================================================== -->
+
+      <section
+        id="preview"
+        class="page">
+
 
         <div class="page-header">
-          <p class="eyebrow">07 / PREVIEW</p>
-          <h2>Video Preview</h2>
-          <p>Preview your project before export.</p>
+
+          <p class="eyebrow">
+            07 / PREVIEW
+          </p>
+
+          <h2>
+            Video Preview
+          </h2>
+
+          <p>
+            Preview your project before export.
+          </p>
+
         </div>
+
 
         <div class="video-preview">
 
-          <div class="play-icon">▶</div>
+          <div class="play-icon">
+            ▶
+          </div>
 
-          <h3>Preview Area</h3>
+          <h3>
+            Preview Area
+          </h3>
 
           <p>
             Your animated video will appear here.
@@ -490,61 +1591,206 @@
       </section>
 
 
-      <!-- EXPORT -->
-      <section id="export" class="page">
+      <!-- =================================================
+           EXPORT
+      ================================================== -->
+
+      <section
+        id="export"
+        class="page">
+
 
         <div class="page-header">
-          <p class="eyebrow">08 / EXPORT</p>
-          <h2>Export Studio</h2>
-          <p>Choose your future video output settings.</p>
+
+          <p class="eyebrow">
+            08 / EXPORT
+          </p>
+
+          <h2>
+            Export Studio
+          </h2>
+
+          <p>
+            Choose your future video output settings.
+          </p>
+
         </div>
+
 
         <div class="export-grid">
 
-          <div class="export-card">
-            <h3>Resolution</h3>
 
-            <button>720p</button>
-            <button>1080p</button>
-            <button>2K</button>
-            <button>4K</button>
+          <div class="export-card">
+
+            <h3>
+              Resolution
+            </h3>
+
+
+            <button
+              type="button"
+              data-resolution="720p">
+
+              720p
+
+            </button>
+
+
+            <button
+              type="button"
+              data-resolution="1080p">
+
+              1080p
+
+            </button>
+
+
+            <button
+              type="button"
+              data-resolution="2K">
+
+              2K
+
+            </button>
+
+
+            <button
+              type="button"
+              data-resolution="4K">
+
+              4K
+
+            </button>
+
           </div>
 
-          <div class="export-card">
-            <h3>Format</h3>
 
-            <button>16:9 YouTube</button>
-            <button>9:16 Shorts / Reels</button>
-            <button>1:1 Square</button>
+          <div class="export-card">
+
+            <h3>
+              Format
+            </h3>
+
+
+            <button
+              type="button"
+              data-format="16:9">
+
+              16:9 YouTube
+
+            </button>
+
+
+            <button
+              type="button"
+              data-format="9:16">
+
+              9:16 Shorts / Reels
+
+            </button>
+
+
+            <button
+              type="button"
+              data-format="1:1">
+
+              1:1 Square
+
+            </button>
+
           </div>
 
+
           <div class="export-card">
-            <h3>Export</h3>
+
+            <h3>
+              Quality
+            </h3>
+
+
+            <button
+              type="button"
+              data-quality="High">
+
+              High
+
+            </button>
+
+
+            <button
+              type="button"
+              data-quality="Medium">
+
+              Medium
+
+            </button>
+
+
+            <button
+              type="button"
+              data-quality="Low">
+
+              Low
+
+            </button>
+
+          </div>
+
+
+          <div class="export-card">
+
+            <h3>
+              Export Project
+            </h3>
+
 
             <p>
-              Final rendering engine will be connected in a future version.
+              Export your current project data as a JSON file.
             </p>
 
-            <button class="primary-btn">
-              🚀 Export Video
+
+            <button
+              class="primary-btn"
+              id="downloadProjectBtn"
+              type="button">
+
+              📤 Export Project
+
             </button>
+
           </div>
+
 
         </div>
 
       </section>
+
 
     </section>
 
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
   <footer>
-    <p>© 2026 LR CARTOON STUDIO PRO</p>
-    <span>Creative tools for storytellers.</span>
+
+    <p>
+      © 2026 LR CARTOON STUDIO PRO
+    </p>
+
+    <span>
+      Creative tools for storytellers.
+    </span>
+
   </footer>
 
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
 
   <script src="script.js"></script>
 
